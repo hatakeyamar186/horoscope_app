@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/home_screen.dart';
+import 'screens/horoscope_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +16,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomeScreen(), //トップ画面を呼び出す
+      initialRoute: '/', // 初期画面を設定
+      // 画面遷移の部分
+      routes: {
+        '/': (context) => const HomeScreen(), // トップ画面
+        '/horoscope': (context) {
+          return const HoroscopeScreen();
+        }
+      },
     );
   }
 }

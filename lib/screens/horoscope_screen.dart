@@ -1,8 +1,25 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:horoscope_app/screens/result.dart';
 
 class HoroscopeScreen extends StatelessWidget {
   const HoroscopeScreen({super.key});
+
+  // 星座リスト（リストを'build'メソッドの外に定義)
+  static final List<String> signs = [
+    'おひつじ座',
+    'おうし座',
+    'ふたご座',
+    'かに座',
+    'しし座',
+    'おとめ座',
+    'てんびん座',
+    'さそり座',
+    'いて座',
+    'やぎ座',
+    'みずがめ座',
+    'うお座'
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -59,22 +76,27 @@ class HoroscopeScreen extends StatelessWidget {
             crossAxisCount: 3,
             children: List.generate(12, (index) {
               final signs = [
-                'Aries',
-                'Taurus',
-                'Gemini',
-                'Cancer',
-                'Leo',
-                'Virgo',
-                'Libra',
-                'Scorpio',
-                'Sagittarius',
-                'Capricorn',
-                'Aquarius',
-                'Pisces'
+                'おひつじ座',
+                'おうし座',
+                'ふたご座',
+                'かに座',
+                'しし座',
+                'おとめ座',
+                'てんびん座',
+                'さそり座',
+                'いて座',
+                'やぎ座',
+                'みずがめ座',
+                'うお座'
               ];
               return GestureDetector(
                 onTap: () {
-                  print('${signs[index]}を選択しました');
+                  // 画面遷移
+                  Navigator.pushNamed(
+                    context,
+                    '/result',
+                    arguments: signs[index], // signを探す
+                  );
                 },
                 child: Card(
                   margin: const EdgeInsets.all(8.0),

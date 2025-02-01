@@ -22,13 +22,16 @@ class MyApp extends StatelessWidget {
       // 画面遷移の部分
       routes: {
         '/': (context) => const HomeScreen(), // トップ画面
+        '/horoscope': (context) => const HoroscopeScreen(),
       },
       onGenerateRoute: (settings) {
         if (settings.name == '/result') {
-          final String sign = settings.arguments as String; // signを適切に取得
-          return MaterialPageRoute(
-            builder: (context) => ResultScreen(sign: sign),
-          );
+          if (settings.arguments is String) {
+            final String sign = settings.arguments as String; // signを適切に取得
+            return MaterialPageRoute(
+              builder: (context) => ResultScreen(sign: sign),
+            );
+          }
         }
         return null;
       },

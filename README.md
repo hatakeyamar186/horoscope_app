@@ -1,6 +1,6 @@
 # horoscope_app
 
-A new Flutter project.
+Flutterで星座占いアプリを作成している。
 
 ## Getting Started
 
